@@ -3,4 +3,7 @@
 
 import sys
 import time
+import ClockSymbols
 
+number = ClockSymbols.getClockSymbolesStr(9,3)
+print(number)
