@@ -1,11 +1,12 @@
 #Number display module
 
-def getClockSymbolesStr(number, minwidth=0):
-    number = str(number).zfill(minwidth)
+def getClockSymbolesStr(number, minWidth=3):
+    
+    number = str(number).zfill(minWidth)
     
     rows =  ['','','']
     for i, numeral in enumerate(number):
-        if number == '.':
+        if numeral == '.':
             rows[0] += ' '
             rows[1] += ' '
             rows[2] += '.'
@@ -14,13 +15,13 @@ def getClockSymbolesStr(number, minwidth=0):
             rows[1] += '__'
             rows[2] += '  '
         elif numeral == '0':     
-            rows[0] += ' _ '
-            rows[1] += '| |'
-            rows[2] += '|_|'
+            rows[0] += '  _ '
+            rows[1] += ' | |'
+            rows[2] += ' |_|'
         elif numeral == '1':
-            rows[0] += '  '
-            rows[1] += '  |'
-            rows[2] += '  |'
+            rows[0] += '   '
+            rows[1] += '   |'
+            rows[2] += '   |'
         elif numeral == '2':
             rows[0] += ' __ '
             rows[1] += ' __|'
@@ -32,7 +33,7 @@ def getClockSymbolesStr(number, minwidth=0):
         elif numeral == '4': 
             rows[0] += ' '
             rows[1] += '|__|'
-            rows[2] += ' |'
+            rows[2] += '   |'
         elif numeral == '5': 
             rows[0] += ' __ '
             rows[1] += '|__ '
@@ -53,8 +54,9 @@ def getClockSymbolesStr(number, minwidth=0):
             rows[0] += ' __ '
             rows[1] += '|__|'
             rows[2] += ' __|'
+            
         if i != len(number) - 1:
             rows[0] += ' '
             rows[1] += ' '
-            rows[2] += ' '
-            return '\n'.join(rows)
+            rows[2] += ' ' 
+    return '\n'.join(rows)
